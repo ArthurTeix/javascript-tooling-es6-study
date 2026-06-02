@@ -30,5 +30,5 @@ module.exports = {
         }]
     },
 
-    devtool: 'source-map' // Mapeia os arquivos de erro do bundle no arquivo exato
+    devtool: 'source-map' // Mapeia os arquivos exatos no meu console, me indicando diretamente onde estão ocorrendo as execuções e os erros possíveis
 }
