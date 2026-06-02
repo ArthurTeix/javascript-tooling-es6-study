@@ -11,3 +11,4 @@ var obj = {
   nome: nome
 };
 var novoObje = _objectSpread({}, obj);
+console.log(novoObje);

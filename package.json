@@ -1,4 +1,16 @@
 {
+  "name": "tooling-es6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel babel/main.js -o babel/bundle.js --presets=@babel/env -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.29.7",
     "@babel/core": "^7.29.7",
