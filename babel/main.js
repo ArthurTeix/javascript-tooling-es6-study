@@ -1,4 +1,6 @@
-const nome = 'Arthur'
-const obj = { nome }
-const novoObje = {...obj}
-console.log(novoObje)
+class Pessoa {
+    constructor(nome, sobrenome) {
+        this.nome = nome,
+        this.sobrenome = sobrenome
+    }
+}
