@@ -10,18 +10,35 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   nome: () => (/* binding */ nome)
+/* harmony export */   "default": () => (/* binding */ subtrair),
+/* harmony export */   faculdade: () => (/* binding */ curso),
+/* harmony export */   idade: () => (/* binding */ idade),
+/* harmony export */   nome: () => (/* binding */ nome),
+/* harmony export */   sobrenome: () => (/* binding */ sobrenome),
+/* harmony export */   soma: () => (/* binding */ soma)
 /* harmony export */ });
 var nome = 'Arthur';
-var sobrenome = 'Teixeira';
 var idade = 18;
 var soma = function soma(x, y) {
   return x + y;
 };
+var curso = 'Sistemas de Informação';
 
 //      COMO EXPORTAR
 //  1- Exportar pelo nome da variável ou função
 
+
+// 2- Exportar direto na criação
+var sobrenome = 'Negromonte';
+
+// 3- Exportar com apelidos
+
+
+// 4- Exportar de forma padrão (default), sem precisar de {}
+// só posso ter um default por arquivo
+function subtrair(x, y) {
+  return x - y;
+}
 
 /***/ }
 
@@ -97,7 +114,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modulo1_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modulo1.js */ "./src/modulo1.js");
 //   IMPORTANDO DE OUTRO ARQUIVO (modulo1.js)
 
-console.log(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.nome);
+
+// importando com apelidos, caso já exista variável com mesmo nome
+
+
+// importando já com apelido predefinido no export
+
+
+/*
+Para importar todos os elementos com 'export' antes da declaração de variáveis de uma única vez, posso usar
+
+import * as MeuModulo from './modulo1.js'
+
+E depois acessar cada elemento como um objeto, ex: 'MeuModulo.nome' ou 'MeuModulo.sobrenome'
+*/
+
+// importando os default
+
+var sobrenome = 'Teixeira';
+console.log("Meu nome \xE9 ".concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.nome, " ").concat(sobrenome, ", tenho ").concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.idade, " anos.")); // Arthur Teixeira
+console.log("Meu nome \xE9 ".concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.nome, " ").concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.sobrenome, ", tenho ").concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.idade, " anos.")); // Arthur Negromonte
+
+console.log(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.soma);
+console.log((0,_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.soma)(3, 4));
+console.log("Meu nome \xE9 ".concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.nome, " e fa\xE7o ").concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.faculdade, "."));
+console.log(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+console.log((0,_modulo1_js__WEBPACK_IMPORTED_MODULE_0__["default"])(7, 2));
 })();
 
 /******/ })()
