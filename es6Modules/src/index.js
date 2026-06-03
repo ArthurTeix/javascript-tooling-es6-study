@@ -1,9 +1,3 @@
-// Essa pasta está sendo assistida pelo meu script 'gerador', toda alteração aqui será refletida no bundle.js dentro da pasta public (que eu não mexo lá), altero apenas aqui o meu index.js dentro da pasta src
-
-const obj = {
-    nome: 'Arthur',
-    idade: 18,
-    altura: 1.70,
-    curso: 'Sistema de informação'
-}
-console.log(obj)
+//   IMPORTANDO DE OUTRO ARQUIVO (modulo1.js)
+import { nome } from './modulo1.js'
+console.log(nome)

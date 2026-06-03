@@ -20,11 +20,13 @@ module.exports = {
 
             test: /\.js$/, // os arquivos que terminam com .js
 
+            type: 'javascript/auto',
+
             use: { // o que deve ser usado 
 
                 loader: 'babel-loader',
                 options: {
-                    presets: ['@babel/env']
+                    presets: ['@babel/preset-env']
                 }
             }
         }]
