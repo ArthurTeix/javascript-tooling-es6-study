@@ -1,4 +1,4 @@
-// Essa pasta está sendo assistida pelo meu script 'gearador', toda alteração aqui será refletida no bundle.js dentro da pasta public (que eu não mexo lá), altero apenas aqui o meu index.js dentro da pasta src
+// Essa pasta está sendo assistida pelo meu script 'gerador', toda alteração aqui será refletida no bundle.js dentro da pasta public (que eu não mexo lá), altero apenas aqui o meu index.js dentro da pasta src
 
 const obj = {
     nome: 'Arthur',
