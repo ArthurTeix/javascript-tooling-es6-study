@@ -17,7 +17,11 @@ export { curso as faculdade }
 
 // 4- Exportar de forma padrão (default), sem precisar de {}
 // só posso ter um default por arquivo
-export default function subtrair(x, y) {
-    return x - y
+export default class Pessoa  {
+    constructor(nome, idade){
+        this.nome = nome
+        this.idade = idade
+    }
 }
+
 

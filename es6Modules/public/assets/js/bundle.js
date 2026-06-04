@@ -10,13 +10,19 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ subtrair),
+/* harmony export */   "default": () => (/* binding */ Pessoa),
 /* harmony export */   faculdade: () => (/* binding */ curso),
 /* harmony export */   idade: () => (/* binding */ idade),
 /* harmony export */   nome: () => (/* binding */ nome),
 /* harmony export */   sobrenome: () => (/* binding */ sobrenome),
 /* harmony export */   soma: () => (/* binding */ soma)
 /* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 var nome = 'Arthur';
 var idade = 18;
 var soma = function soma(x, y) {
@@ -36,9 +42,12 @@ var sobrenome = 'Negromonte';
 
 // 4- Exportar de forma padrão (default), sem precisar de {}
 // só posso ter um default por arquivo
-function subtrair(x, y) {
-  return x - y;
-}
+var Pessoa = /*#__PURE__*/_createClass(function Pessoa(nome, idade) {
+  _classCallCheck(this, Pessoa);
+  this.nome = nome;
+  this.idade = idade;
+});
+
 
 /***/ }
 
@@ -120,6 +129,12 @@ __webpack_require__.r(__webpack_exports__);
 
 // importando já com apelido predefinido no export
 
+var sobrenome = 'Teixeira';
+console.log("Meu nome \xE9 ".concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.nome, " ").concat(sobrenome, ", tenho ").concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.idade, " anos.")); // Arthur Teixeira
+console.log("Meu nome \xE9 ".concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.nome, " ").concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.sobrenome, ", tenho ").concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.idade, " anos.")); // Arthur Negromonte
+
+console.log(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.soma);
+console.log((0,_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.soma)(3, 4));
 
 /*
 Para importar todos os elementos com 'export' antes da declaração de variáveis de uma única vez, posso usar
@@ -129,17 +144,12 @@ import * as MeuModulo from './modulo1.js'
 E depois acessar cada elemento como um objeto, ex: 'MeuModulo.nome' ou 'MeuModulo.sobrenome'
 */
 
+console.log("Meu nome \xE9 ".concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.nome, " e fa\xE7o ").concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.faculdade, "."));
+
 // importando os default
 
-var sobrenome = 'Teixeira';
-console.log("Meu nome \xE9 ".concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.nome, " ").concat(sobrenome, ", tenho ").concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.idade, " anos.")); // Arthur Teixeira
-console.log("Meu nome \xE9 ".concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.nome, " ").concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.sobrenome, ", tenho ").concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.idade, " anos.")); // Arthur Negromonte
-
-console.log(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.soma);
-console.log((0,_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.soma)(3, 4));
-console.log("Meu nome \xE9 ".concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.nome, " e fa\xE7o ").concat(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.faculdade, "."));
-console.log(_modulo1_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
-console.log((0,_modulo1_js__WEBPACK_IMPORTED_MODULE_0__["default"])(7, 2));
+var p1 = new _modulo1_js__WEBPACK_IMPORTED_MODULE_0__["default"](_modulo1_js__WEBPACK_IMPORTED_MODULE_0__.nome, _modulo1_js__WEBPACK_IMPORTED_MODULE_0__.idade); // classe totalmente exportada
+console.log(p1);
 })();
 
 /******/ })()
