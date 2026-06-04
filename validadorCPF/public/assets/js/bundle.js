@@ -31,6 +31,25 @@ var GeraCPF = /*#__PURE__*/function () {
       var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 999999999;
       return String(Math.floor(Math.random() * (max - min) + min));
     }
+  }, {
+    key: "formatado",
+    value: function formatado(cpf) {
+      return cpf.slice(0, 3) + '.' + cpf.slice(3, 6) + '.' + cpf.slice(6, 9) + '-' + cpf.slice(9, 11);
+    }
+  }, {
+    key: "geraNovoCpf",
+    value: function geraNovoCpf() {
+      // Criação do novo cpf
+      var cpfSemDigito = this.rand();
+
+      // Cálculo dos dois últimos dígitos
+      var digito1 = _ValidaCPF__WEBPACK_IMPORTED_MODULE_0__["default"].geraDigito(cpfSemDigito);
+      var digito2 = _ValidaCPF__WEBPACK_IMPORTED_MODULE_0__["default"].geraDigito(cpfSemDigito + digito1);
+
+      // Novo CPF gerado
+      var novoCPF = cpfSemDigito + digito1 + digito2;
+      return this.formatado(novoCPF);
+    }
   }]);
 }();
 
@@ -152,7 +171,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 body {
   margin: 0;
   padding: 0;
-  background: var(--primary-color);
+  background: var(--primary-color-darker);
   font-family: 'Open sans', sans-serif;
   font-size: 1.3em;
   line-height: 1.5em;
@@ -164,39 +183,18 @@ body {
   background: #fff;
   padding: 20px;
   border-radius: 10px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-form input, form label, form button {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
+.cpf-gerado {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 20px;
 }
-
-form input {
-  font-size: 24px;
-  height: 50px;
-  padding: 0 20px;
-}
-
-form input:focus {
-  outline: 1px solid var(--primary-color);
-}
-
-form button {
-  border: none;
-  background: var(--primary-color);
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  height: 50px;
-  cursor: pointer;
-  margin-top: 30px;
-}
-
-form button:hover {
-  background: var(--primary-color-darker);
-}
-`, "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AACA;EACE,iCAAiC;EACjC,sCAAsC;AACxC;;AAEA;EACE,sBAAsB;EACtB,UAAU;AACZ;;AAEA;EACE,SAAS;EACT,UAAU;EACV,gCAAgC;EAChC,oCAAoC;EACpC,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,gBAAgB;EAChB,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,cAAc;EACd,WAAW;EACX,mBAAmB;AACrB;;AAEA;EACE,eAAe;EACf,YAAY;EACZ,eAAe;AACjB;;AAEA;EACE,uCAAuC;AACzC;;AAEA;EACE,YAAY;EACZ,gCAAgC;EAChC,WAAW;EACX,eAAe;EACf,gBAAgB;EAChB,YAAY;EACZ,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,uCAAuC;AACzC","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');\n:root {\n  --primary-color: rgb(17, 86, 102);\n  --primary-color-darker: rgb(9, 48, 56);\n}\n\n* {\n  box-sizing: border-box;\n  outline: 0;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  background: var(--primary-color);\n  font-family: 'Open sans', sans-serif;\n  font-size: 1.3em;\n  line-height: 1.5em;\n}\n\n.container {\n  max-width: 640px;\n  margin: 50px auto;\n  background: #fff;\n  padding: 20px;\n  border-radius: 10px;\n}\n\nform input, form label, form button {\n  display: block;\n  width: 100%;\n  margin-bottom: 10px;\n}\n\nform input {\n  font-size: 24px;\n  height: 50px;\n  padding: 0 20px;\n}\n\nform input:focus {\n  outline: 1px solid var(--primary-color);\n}\n\nform button {\n  border: none;\n  background: var(--primary-color);\n  color: #fff;\n  font-size: 18px;\n  font-weight: 700;\n  height: 50px;\n  cursor: pointer;\n  margin-top: 30px;\n}\n\nform button:hover {\n  background: var(--primary-color-darker);\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AACA;EACE,iCAAiC;EACjC,sCAAsC;AACxC;;AAEA;EACE,sBAAsB;EACtB,UAAU;AACZ;;AAEA;EACE,SAAS;EACT,UAAU;EACV,uCAAuC;EACvC,oCAAoC;EACpC,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,gBAAgB;EAChB,aAAa;EACb,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;AACrB;;AAEA;EACE,8CAA8C;EAC9C,cAAc;EACd,iBAAiB;EACjB,2BAA2B;EAC3B,mBAAmB;AACrB","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');\n:root {\n  --primary-color: rgb(17, 86, 102);\n  --primary-color-darker: rgb(9, 48, 56);\n}\n\n* {\n  box-sizing: border-box;\n  outline: 0;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  background: var(--primary-color-darker);\n  font-family: 'Open sans', sans-serif;\n  font-size: 1.3em;\n  line-height: 1.5em;\n}\n\n.container {\n  max-width: 640px;\n  margin: 50px auto;\n  background: #fff;\n  padding: 20px;\n  border-radius: 10px;\n  text-align: center;\n  margin-bottom: 40px;\n}\n\n.cpf-gerado {\n  font-family: 'Courier New', Courier, monospace;\n  font-size: 2em;\n  font-weight: bold;\n  color: var(--primary-color);\n  margin-bottom: 20px;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -732,6 +730,13 @@ __webpack_require__.r(__webpack_exports__);
 // Já que o GeraCPF também importa o ValidaCPF, então um único import acaba englobando dois arquivos (GeraCPF e ValidaCPF)
 
 
+
+// Função IIFE (auto executada)
+(function () {
+  var gerador = new _modules_GeraCPF_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  var cpfGerado = document.querySelector(".cpf-gerado");
+  cpfGerado.innerHTML = gerador.geraNovoCpf();
+})();
 })();
 
 /******/ })()
