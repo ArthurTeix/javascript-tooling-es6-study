@@ -17,7 +17,7 @@ const simbolos = "!@#$%¨&*()_-+=`[{ª~^]}º,.<>;:/?°|§"
 const geraSimbolos = () => simbolos[random(0, simbolos.length)]
 
 // Função Geradora
-function geraSenha(quant, num, maiusc, minusc, simb) {
+export default function geraSenha(quant, num, maiusc, minusc, simb) {
     const senha = []
     quant = Number(quant)
 
