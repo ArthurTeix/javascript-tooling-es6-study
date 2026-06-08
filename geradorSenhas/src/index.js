@@ -1,3 +1,4 @@
+import formGeraSenha from './modules/formGeraSenha.js'
 import './assets/css/style.css'
 
-console.log('oi')
+formGeraSenha()
